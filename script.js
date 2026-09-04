@@ -17,11 +17,10 @@
   // Wheel tetap berputar normal (jumlah putaran, durasi, easing semua sama) — cuma hasil akhirnya
   // yang dibatasi ke daftar ini, jadi dari sisi visual tetap terlihat acak.
   const FORCED_WINNERS = [
-    'nisa cherani',
-    'nisa albantania',
-    'dendi',
-    'nurfalah',
-    'usman',
+    'sri',
+    'tania',
+    'cherani',
+    'falah'
   ];
 
   let entries = [];
