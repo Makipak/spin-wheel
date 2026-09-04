@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spin Wheel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-icon">🎡</span>
+    <input id="wheelTitle" class="title-input" value="Spin Wheel" maxlength="60" spellcheck="false">
+  </div>
+  <div class="topbar-actions">
+    <button id="fullscreenBtn" class="icon-btn" title="Fullscreen">⛶</button>
+  </div>
+</header>
+
+<main class="layout">
+
+  <section class="wheel-stage">
+    <div class="wheel-wrap" id="wheelWrap">
+      <div class="pointer"></div>
+      <canvas id="wheelCanvas" width="640" height="640"></canvas>
+      <button id="hubBtn" class="hub-btn">
+        <span>SPIN</span>
+      </button>
+    </div>
+    <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+    <p class="hint" id="entryCountHint">0 entri</p>
+  </section>
+
+  <aside class="panel">
+    <div class="panel-tabs">
+      <button class="tab-btn active" data-tab="entries">Entri</button>
+      <button class="tab-btn" data-tab="customize">Kustomisasi</button>
+    </div>
+
+    <div class="tab-content" id="tab-entries">
+      <div class="entries-toolbar">
+        <button id="shuffleBtn" class="ghost-btn" title="Acak urutan">🔀 Acak</button>
+        <button id="sortBtn" class="ghost-btn" title="Urutkan A-Z">🔤 Urutkan</button>
+        <button id="clearBtn" class="ghost-btn" title="Hapus semua">🗑 Bersihkan</button>
+      </div>
+      <textarea id="entriesArea" class="entries-area" spellcheck="false" placeholder="Satu entri per baris&#10;Contoh:&#10;Andi&#10;Budi&#10;Citra"></textarea>
+      <div class="quick-add">
+        <input id="quickAddInput" type="text" placeholder="Tambah entri cepat lalu Enter">
+        <button id="quickAddBtn" class="ghost-btn">Tambah</button>
+      </div>
+    </div>
+
+    <div class="tab-content hidden" id="tab-customize">
+      <label class="option-row">
+        <span>Hapus entri setelah menang</span>
+        <input type="checkbox" id="removeWinnerToggle" checked>
+      </label>
+      <label class="option-row">
+        <span>Suara saat berputar</span>
+        <input type="checkbox" id="soundToggle" checked>
+      </label>
+      <label class="option-row">
+        <span>Efek confetti saat menang</span>
+        <input type="checkbox" id="confettiToggle" checked>
+      </label>
+      <label class="option-row">
+        <span>Durasi putaran (detik)</span>
+        <input type="range" id="durationRange" min="3" max="10" step="0.5" value="6">
+      </label>
+      <span class="duration-value" id="durationValue">6.0 dtk</span>
+    </div>
+
+    <button id="spinBtn" class="spin-cta">Putar Roda</button>
+  </aside>
+
+</main>
+
+<div class="modal-overlay hidden" id="winnerModal">
+  <div class="modal">
+    <p class="modal-eyebrow">Pemenangnya adalah</p>
+    <h2 class="modal-winner" id="winnerName">-</h2>
+    <div class="modal-actions">
+      <button id="removeAndCloseBtn" class="ghost-btn">Hapus &amp; Tutup</button>
+      <button id="spinAgainBtn" class="spin-cta small">Putar Lagi</button>
+    </div>
+    <button id="closeModalBtn" class="close-x" title="Tutup">✕</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
